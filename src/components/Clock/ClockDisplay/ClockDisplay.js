@@ -40,7 +40,7 @@ class ClockDisplay extends Component {
         return (
             <React.Fragment>
                 {endMemo ? <div className={`${classes.Background} ${!this.state.show ? classes.Hide : ''}`}>
-                    <Button src={'/public/images/close2.svg'} onClick={() => {
+                    <Button src={'./images/close2.svg'} onClick={() => {
                         this.props.saveRes();this.hideBox()}} faded={classesBtn.FadedEffect}/>
                     <div className={[classes.WinBox, classes.PopupEffect].join(' ')}>
                         <p className={classes.Text}>Gratulacje!</p>

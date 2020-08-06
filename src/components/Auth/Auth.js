@@ -15,7 +15,7 @@ const auth = (props) => {
                 >
                     <div className={classes.AuthBox}>
                         <Link to="/register"><GameLevel width= '320px' height= '60px' onClick={props.clicked} name='Logowanie/Rejestracja' /></Link>
-                        <GameLevel width= '320px' height= '60px' onClick={props.clicked} name='Graj jako gość' />
+                        <Link to="/"><GameLevel width= '320px' height= '60px' onClick={props.clicked} name='Graj jako gość' /></Link>
                     </div>
                 </ModalBox>
             </div>
