@@ -25,13 +25,13 @@ class Layout  extends Component {
                 
                 <main className={classes.Container}>
                     <div className={classes.MainBox}>
-                        <img className={classes.Img} src={'/public/images/cat4.svg'}/>
+                        <img className={classes.Img} src={'./images/cat4.svg'}/>
                             {this.props.children}
-                        <img className={[classes.Img, classes.Hide].join(' ')} src={'/public/images/cat5.svg'}/>
+                        <img className={[classes.Img, classes.Hide].join(' ')} src={'./images/cat5.svg'}/>
                     </div>
                     <div className={classes.Results}>
-                        <Mark src={'/public/images/medal1.svg'} title="Najlepsze wyniki"/>
-                        <Mark src={'/public/images/medal2.svg'} title="Twoje najlepsze wyniki"/>
+                        <Mark src={'./images/medal1.svg'} title="Najlepsze wyniki"/>
+                        <Mark src={'./images/medal2.svg'} title="Twoje najlepsze wyniki"/>
                     </div> 
                 </main>
                 <footer className={classes.Footer}>2020. Aplikację wykonała Angelika Chochorowska &copy; wszystkie prawa zastrzeżone</footer>

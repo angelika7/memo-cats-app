@@ -2,13 +2,14 @@
     position: relative;
     padding: 40px 0; 
     overflow: hidden;
-    min-height: 100%;
+    min-height: 100vh;
     
 }
 
 .Container {
     background: linear-gradient(50deg, rgb(var(--color-yellow)) 5%, var(--color-yellow-light-2) 75%, rgb(var(--color-white)) 75%); 
     margin-bottom: 40px;
+    min-height: 100vh;
 }
 
 .MainBox {
