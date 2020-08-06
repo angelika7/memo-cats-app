@@ -1,0 +1,38 @@
+.FormBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 300px;
+    background-color: rgba(var(--color-yellow-dark-2), .8);
+    box-shadow: 8px 8px 5px 0px rgba(var(--color-black),0.75);
+    margin-top: 30px;
+}
+
+@media (max-width: 1024px) {
+    .Form {
+        width: 480px;
+    }
+}
+
+@media (max-width: 620px) {
+    .Form {
+        width: 380px;
+    }
+}
+
+@media (max-width: 425px) {
+    .Form {
+        width: 270px;
+    }
+}
+    

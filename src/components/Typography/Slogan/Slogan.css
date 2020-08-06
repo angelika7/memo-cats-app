@@ -1,0 +1,22 @@
+.Primary {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 120px;
+}
+
+@media (max-width: 1024px) {
+    .Primary {
+        font-size: 80px
+    }
+}
+
+@media (max-width: 540px) {
+    .Primary {
+        font-size: 65px
+    }
+}
+
+@media (max-width: 375px) {
+    .Primary {
+        font-size: 50px
+    }
+}

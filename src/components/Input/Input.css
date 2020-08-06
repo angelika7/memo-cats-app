@@ -1,0 +1,34 @@
+.InputForm {
+    width: 60%;
+    height: 40px;
+    border: none;
+    box-shadow: 4px 4px 5px 0px rgba(var(--color-black),0.75);
+    margin-bottom: 25px;
+}
+
+.Input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    background-color: var(--color-bahama-yellow);
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--color-black);
+    padding: 15px;
+    transition: all .4s ease;
+}
+
+::placeholder {
+    color: var(--color-gray);
+}
+
+.Input:focus {
+    background-color: rgb(var(--color-yellow-light-3));
+    outline: none;
+}
+
+@media (max-width: 620px) {
+    .InputForm {
+        width: 80%;
+    }
+}

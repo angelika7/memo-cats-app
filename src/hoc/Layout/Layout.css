@@ -1,0 +1,114 @@
+.Content {
+    position: relative;
+    padding: 40px 0; 
+    overflow: hidden;
+    min-height: 100%;
+    
+}
+
+.Container {
+    background: linear-gradient(50deg, rgb(var(--color-yellow)) 5%, var(--color-yellow-light-2) 75%, rgb(var(--color-white)) 75%); 
+    margin-bottom: 40px;
+}
+
+.MainBox {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+.Header {
+    margin-bottom: 15px;
+    margin-left: 40px;
+}
+
+.Results {
+    position: absolute;
+    top: 15%;
+    right: 0;
+    display: grid;
+    grid-template-rows: 100px 20px;
+}
+
+.Img {
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    align-self: center;
+}
+
+.Footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 35px 0;
+    background-color: var(--color-yellow-dark-3);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: rgb(var(--color-white));
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.Hide {
+    display: block;
+}
+
+@media (max-width: 1024px) {
+    .Header {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .MainBox {
+        grid-template-columns: 5% 90% 5%;
+    }
+    .Hide {
+        display: none;
+    }
+
+    .Results {
+        top: 13%;
+    }
+}
+
+@media (max-width: 600px) {
+    .Header {
+        margin-top: 80px;
+    }
+    .Footer {
+        font-size: 7px;
+    }
+}
+
+@media (max-width: 540px) {
+    .Results {
+        grid-template-rows: 80px 20px;
+    }
+}
+
+@media (max-width: 425px) {
+    .Results {
+        top: 80%;
+    }
+
+    .Footer {
+        font-size: 6px;
+        text-align: center;
+        padding: 35px 20px;
+        line-height: 12px;
+    }
+}
+
+@media (max-width: 375px) {
+    .Header {
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: center;
+    }
+}
+
+

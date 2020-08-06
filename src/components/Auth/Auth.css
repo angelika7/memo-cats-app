@@ -1,0 +1,48 @@
+.Container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--color-gray), .9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.Content {
+    background-image: url(/public/images/cats.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    z-index: 100;
+}
+
+@media (max-width: 600px) {
+    .Content {
+        width: 90%;
+        height: 90%;
+    }
+}
+
+@media (max-width: 425px) {
+    .Content {
+        width: 90%;
+        height: 50%;
+        top: 30%;
+    }
+}
+
+.AuthBox {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 165px;
+    margin-top: 45px;
+}

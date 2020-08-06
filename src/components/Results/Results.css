@@ -1,0 +1,34 @@
+ol {
+    list-style-type: none;
+    counter-reset: my-number;
+}
+
+ol li {
+    counter-increment: my-number;
+    color: var(--color-yellow-dark-3);
+}
+
+ol li:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+ol li::before {
+    content: counter(my-number) ". ";
+    color: var(--color-red-dark);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+@media (max-width: 540px) {
+    ol li {
+        font-size: 12px;
+    }
+
+    ol li::before {
+        font-size: 15px;
+    }
+
+    ol li:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}

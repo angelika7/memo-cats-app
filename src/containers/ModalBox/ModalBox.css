@@ -1,0 +1,10 @@
+.Box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(var(--color-yellow-light-3), 0.95);
+    padding: 40px;
+    box-shadow: 8px 8px 5px 0px rgba(var(--color-black),0.75);
+    height: 100%;
+}

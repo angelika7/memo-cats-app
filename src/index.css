@@ -1,0 +1,45 @@
+:root {
+--color-yellow-light-3: 255, 255, 191;
+--color-yellow-light-2: #ffff9e;
+--color-bahama-yellow: #f9e04b;
+--color-yellow-light: #fde456;
+--color-banana: #fefe33;
+--color-yellow: 255, 239, 0;
+--color-lemon: 253, 233, 16;
+--color-yellow-dark: #d0d015;
+--color-yellow-dark-2: 163, 162,	27;
+--color-yellow-dark-3: #2b2911;
+
+--color-button-dark: 43, 41, 17;
+
+--color-red-dark: rgb(207, 47, 47);
+--color-red-dark-2: 207, 41, 41;
+
+--color-black: 0, 0, 0;
+--color-gray: 152, 148, 119;
+--color-white: 255, 255, 255;
+
+--alpha: 0.8;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root, #root>div {
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+
+
+
+

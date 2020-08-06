@@ -1,0 +1,123 @@
+.Clock {
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.Background {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 11;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    background-color:rgba(var(--color-white), .5)
+}
+
+.WinBox {
+    background-color: rgba(var(--color-yellow-light-3), .85);
+    width: 700px;
+    height: 500px;
+    border-radius: 50px;
+    box-shadow: 8px 8px 5px 0px rgba(var(--color-black),0.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Text {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 65px;
+    letter-spacing: 1.5px;
+}
+
+.Info {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.TimeResult {
+    font-size: 40px;
+    letter-spacing: 1px;
+    color: var(--color-yellow-dark-3);
+}
+
+.PopupEffect {
+    animation: bgEffect 1s linear alternate 1;  
+} 
+
+@keyframes bgEffect {
+    0% {transform: scale(.3);}
+    
+    75% {transform: scale(1.2);}
+    
+    100% {transform: scale(1);}
+} 
+
+.Hide {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .WinBox {
+        width: 600px;
+    }
+}
+
+@media (max-width: 740px) {
+    .WinBox {
+        width: 500px;
+        margin-top: 20px;
+    }
+
+    .Background {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 540px) {
+    .Clock {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 540px) {
+    .Info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Info > span {
+        margin-top: 15px;
+    }
+
+    .TimeResult {
+        margin-top: 15px;
+    }
+
+    .WinBox {
+        width: 80%
+    }
+}
+
+@media (max-width: 425px) {
+    .Text {
+        font-family: 'Shadows Into Light', cursive;
+        font-size: 45px;
+        letter-spacing: 1px;
+    }
+
+    .Info {
+        font-size: 16px;
+    }
+
+    .TimeResult {
+        font-size: 30px;
+    }
+}
