@@ -9,7 +9,7 @@
 }
 
 .Content {
-    background-image: url(/public/images/cats.svg);
+    background-image: url(./../../assets/images/cats.svg);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;

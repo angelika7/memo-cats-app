@@ -29,7 +29,7 @@
         to left bottom,
         rgba(var(--color-white), 0.7),
         rgba(var(--color-yellow-light-3), 0.4)),
-    url(/public/images/cat-black.svg);
+    url(./../../assets/images/cat-black.svg);
     background-position: left;
     background-repeat: no-repeat;
     background-size: contain;
