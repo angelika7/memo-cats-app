@@ -53,7 +53,10 @@ module.exports = {
           },
           {
               test: /\.(png|svg|jpg|jpe?g|gif)$/,
-              loader: 'url-loader?limit=false&name=/images/[name].[ext]'
+              loader: 'url-loader?limit=false&name=/images/[name].[ext]',
+              options: {
+                esModule: false
+            }
           }
       ]
   },
