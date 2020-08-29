@@ -38,7 +38,7 @@
 
 .CardStyleFront:before, .CardStyleFront:after {
     content: '';
-    mask-image: url(/public/images/paw.svg);
+    mask-image: url(./../../../assets/images/paw.svg);
     mask-size: cover;
     background-color: rgb(var(--color-gray));
     height: 40px;

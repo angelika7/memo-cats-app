@@ -8,6 +8,7 @@ import Clock from './../Clock/Clock';
 import NewGame from './../Buttons/NewGame/NewGame'
 
 import classes from './Memo.css'
+import watch from './../../assets/images/watch.svg'
 
 class Memo extends Component {
     
@@ -195,7 +196,7 @@ class Memo extends Component {
                 <React.Fragment>
                     <div className={classes.ClockBox}>
                         {this.state.isEasy ? <p className={classes.GameLevelText}>Poziom: Łatwy</p> : <p className={classes.GameLevelText}>Poziom: Trudny</p>}
-                        <img className={classes.Clock} src={'./images/watch.svg'} />
+                        <img className={classes.Clock} src={watch} />
                         <Clock newGame={this.state.newGame} endGame={this.state.endGame} level={this.state.isEasy}/>
                     </div>
                     <div className={classes.Box}>
