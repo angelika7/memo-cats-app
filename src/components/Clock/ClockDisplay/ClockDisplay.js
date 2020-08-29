@@ -3,6 +3,7 @@ import Button from './../../Buttons/Button/Button';
 
 import classes from './ClockDisplay.css'
 import classesBtn from './../../Buttons/Button/Button.css';
+import closeBtn from './../../../assets/images/close2.svg';
 
 class ClockDisplay extends Component {
     state = {
@@ -40,7 +41,7 @@ class ClockDisplay extends Component {
         return (
             <React.Fragment>
                 {endMemo ? <div className={`${classes.Background} ${!this.state.show ? classes.Hide : ''}`}>
-                    <Button src={'./images/close2.svg'} onClick={() => {
+                    <Button src={closeBtn} onClick={() => {
                         this.props.saveRes();this.hideBox()}} faded={classesBtn.FadedEffect}/>
                     <div className={[classes.WinBox, classes.PopupEffect].join(' ')}>
                         <p className={classes.Text}>Gratulacje!</p>
