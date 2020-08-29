@@ -1,4 +1,5 @@
 import React from 'react';
+import cats from './../../assets/images/cats.svg'
 import { Link } from 'react-router-dom';
 import GameLevel from './../Buttons/GameLevel/GameLevel'
 import ModalBox from './../../containers/ModalBox/ModalBox'

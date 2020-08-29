@@ -1,4 +1,4 @@
-import img1 from './../../../assets/images/1-min.jpg';
+import img1 from './../../../assets/images/17-min.jpg';
 import img2 from './../../../assets/images/2-min.jpg';
 import img3 from './../../../assets/images/3-min.jpg';
 import img4 from './../../../assets/images/4-min.jpg';
@@ -14,17 +14,6 @@ import img13 from './../../../assets/images/13-min.jpg';
 import img14 from './../../../assets/images/14-min.jpg';
 import img15 from './../../../assets/images/15-min.jpg';
 import img16 from './../../../assets/images/16-min.jpg'; 
-
-/* const cats = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16]
-const countCat = 1
-const cards = cats.map(cat => ({
-    flipped: false,
-    type: `Cat ${countCat}`,
-    src: cat,
-    solved: false,
-}))
-
-export default cards */
 
 class Card {
     constructor (flipped, type, src) {
