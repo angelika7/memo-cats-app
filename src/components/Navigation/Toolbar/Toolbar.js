@@ -4,8 +4,8 @@ import NavigationItems from './../NavigationItems/NavigationItems';
 import classes from './Toolbar.css';
 
 const toolbar = (props) => (
-    <nav className={!props.clicked ? classes.Hide : classes.Navigation}>
-        <NavigationItems />
+    <nav className={classes.Navigation}>
+        <NavigationItems isAuthenticated={props.isAuth} />
     </nav>
 );
 

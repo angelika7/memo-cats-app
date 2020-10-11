@@ -9,7 +9,7 @@ import classes from './Auth.css';
 
 const auth = (props) => {
     return (
-        <div className={classes.Container}>
+        <div className={`${classes.Container} ${props.isClicked || props.isAuth ? classes.Hide : ''}`}>
             <div className={classes.Content}>
                 <ModalBox title="Witaj w MemoCats App" hello={true}
                     bgColor= "rgba(var(--color-yellow-light-3), .85)"

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import Input from './../../components/Input/Input';
 import Login from './../../components/Buttons/Login/Login';
+import Btn from './../../components/Buttons/GameLevel/GameLevel';
 import * as actions from './../../store/actions/index';
 
 import classes from './Register.css';
@@ -91,12 +92,12 @@ class Register extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        this.props.onAuth( this.state.controls.email.value, this.state.controls.password.value, this.state.isSignup );
+        this.props.onAuth( this.state.controls.email.value, this.state.controls.password.value, this.state.isSignUp );
     }
 
-    switchAuthModeHandler = () => {
+    logRegisterHandler = () => {
         this.setState(prevState => {
-            return {isSignup: !prevState.isSignup};
+            return {isSignUp: !prevState.isSignUp};
         });
     }
 
@@ -121,7 +122,6 @@ class Register extends Component {
                 changed={( event ) => this.inputChangedHandler( event, element.id )} />
 
             ) );
-        console.log(formElementsArray)
 
         let errorMessage = null;
 
@@ -136,16 +136,21 @@ class Register extends Component {
             authRedirect = <Redirect to={this.props.authRedirectPath}/>
         }
 
+        let name = null;
+        let text = null;
+
+        {this.state.isSignUp ? name='Zaloguj się' : name='Zarejestruj się'}
+        {this.state.isSignUp ? text='Zarejestruj się' : text='Zaloguj się'}
+        
+
         return (
             <div className={classes.FormBox}>
+                {errorMessage}
                 <form className={classes.Form} onSubmit={this.submitHandler}>
                     {form}
-                    <Login name='Zaloguj się'/>
+                    <Login name={name}/>
                 </form>
-                <form className={classes.Form} onSubmit={this.submitHandler}>
-                    {form}
-                    <Login name='Zarejestruj się'/>
-                </form>
+                <Btn name={text} onClick={this.logRegisterHandler} />
             </div>
         )
     }
@@ -153,16 +158,17 @@ class Register extends Component {
 
 const mapStateToProps = state => {
     return {
+        loading: state.auth.loading,
         error: state.auth.error,
         isAuthenticated: state.auth.token !== null,
-        authRedirectPath: state.auth.authRedirectPath
+        authRedirectPath: state.auth.authRedirectPath,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth: ( email, password, isSignup ) => dispatch( actions.auth( email, password, isSignup ) ),
-        onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/'))
+        onAuth: ( email, password, isSignUp ) => dispatch( actions.auth( email, password, isSignUp ) ),
+        onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/')),
     };
 };
 

@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import withErrorHandler from './../../hoc/withErrorHandler/withErrorHandler';
-import axios from './../../axios';
+
+//import * as actions from './../../store/actions/index';
+import axios from './../../axios'; 
 
 import ClockDisplay from './ClockDisplay/ClockDisplay';
 
 
 class Clock extends Component {
     state = {
-        miliseconds: 0,
-        seconds: 0,
-        minutes: 0,
         running: false,
         endMemo: false,
-        stopTime: ''
+        stopTime: '',
+        name: null, 
+        clockTime: 0
     }
 
     componentDidMount() {
@@ -28,22 +31,12 @@ class Clock extends Component {
         if(prevProps.endGame !== this.props.endGame) {
             this.setState({endMemo: true});
             this.stopTimerHandler()
-            console.log('Timer stop!')
+            console.log('Timer stop!')   
         }
     }
 
     tick = () => { 
-        this.setState({miliseconds: this.state.miliseconds + 10,
-        time: this.state.time + 10});
-
-        if(this.state.miliseconds >= 1000) {
-            this.setState({seconds: this.state.seconds + 1});
-            this.setState({miliseconds: 0});
-        }
-        if(this.state.seconds >= 60) {
-            this.setState({minutes: this.state.minutes + 1});
-            this.setState({seconds: 0});
-        }
+        this.setState({clockTime: this.state.clockTime + 10})
     }
 
     startTimerHandler = () => {
@@ -54,12 +47,16 @@ class Clock extends Component {
     }
 
     stopTimerHandler = () => {
-        let myTime = `${this.state.minutes}:${this.state.seconds}:${this.state.miliseconds}ms`;
+        const { clockTime } = this.state;
+        let miliseconds = ("0" + (Math.floor(clockTime / 10) % 100)).slice(-2);
+        let seconds = ("0" + (Math.floor(clockTime / 1000) % 60)).slice(-2);
+        let minutes = ("0" + (Math.floor(clockTime / 60000) % 60)).slice(-2);
+        let myTime = `${minutes}:${seconds}:${miliseconds}ms`
 
         this.setState((state, props) => {
             return { running: false,
             stopTime: myTime }
-        },() => console.log(this.state.stopTime, 'updated Time')); 
+        },() => console.log(this.state.stopTime, 'Stop Time')); 
         
         clearInterval(this.time); 
     }
@@ -72,13 +69,30 @@ class Clock extends Component {
         })
     }
 
+    inputChangedHandler = () => {
+        this.setState({name: event.target.value})
+    }
+
     saveEndGameResultHandler = () => {
-        const result = {
+        const isAuthenticated = this.props.isAuthenticated;
+        const ID = this.props.userID;
+        let result = {
             time: this.state.stopTime,
             level: this.props.level,
             customer: {
-                name: 'Ala',
-                email: 'test@test.com'
+                name: this.state.name,
+                id: ''
+            }
+        }
+
+        if(isAuthenticated) {
+            result = {
+                time: this.state.stopTime,
+                level: this.props.level,
+                customer: {
+                    name: this.state.name,
+                    id: ID
+                }
             }
         }
 
@@ -88,13 +102,25 @@ class Clock extends Component {
     }
 
     render () {
+        const { clockTime } = this.state;
+        let miliseconds = ("0" + (Math.floor(clockTime / 10) % 100)).slice(-2);
+        let seconds = ("0" + (Math.floor(clockTime / 1000) % 60)).slice(-2);
+        let minutes = ("0" + (Math.floor(clockTime / 60000) % 60)).slice(-2);
+        let time = `${minutes}:${seconds}:${miliseconds}ms`
         
         return ( 
             <React.Fragment>
-                <ClockDisplay time={this.state} level={this.props.level} saveRes={this.saveEndGameResultHandler}/>
+                <ClockDisplay endMemo={this.state.endMemo} stopTime={this.state.stopTime} time={time} level={this.props.level} saveRes={this.saveEndGameResultHandler} changed={this.inputChangedHandler}/>
             </React.Fragment>
         )
     }
 }
 
-export default withErrorHandler(Clock, axios);
+const mapStateToProps = state => {
+    return {
+      isAuthenticated: state.auth.token !== null,
+      userID: state.auth.userId
+    };
+  };
+
+export default withRouter( connect( mapStateToProps)( Clock, axios ) );

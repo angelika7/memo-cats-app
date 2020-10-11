@@ -1,70 +1,33 @@
-import React, { Component, Suspense } from 'react';
+import React, { useState  } from 'react';
 import ModalBox from './../../containers/ModalBox/ModalBox';
 import Button from './../../components/Buttons/Button/Button';
-import regeneratorRuntime from "regenerator-runtime";
+import Results from './../Results/Results';
 
 import classes from './Mark.css';
-import axios from './../../axios';
 
-const Results = React.lazy(() => import('./../Results/Results'));
+//const Results = React.lazy(() => import('./../Results/Results'));
 
-class Mark extends Component {
-    state = {
-        isShow: false,
-        allTimes: null,
-        bestTimes: null
-    }
+const Mark = (props) => {
+    const [open, setOpen] = useState(false);
 
-    componentDidMount() {
-        this.getData()
-    }
-
-    async getData() {
-        await axios.get('https://react-memo-app-df524.firebaseio.com/results.json')
-            .then((response) => {
-                let users = response.data;
-                let allUsers = Object.keys(users).map(key => {
-                    let ar = users[key]
-                 
-                    // Apppend key if one exists (optional)
-                    ar.key = key
-                    return ar
-                }).sort((a,b) => {
-                    return ('' + a.time).localeCompare(b.time)
-                })
-
-                this.setState({allTimes: allUsers});
-                console.log(this.state.allTimes)
-            })
-    }
-
-    onClickHandler = () => {
-        this.setState({isShow: !this.state.isShow})
-    }
-
-    render() {
-
-        return (
-            <div className={`${classes.ResultsBox} ${this.state.isShow ? classes.Show : ''}`}>
-                <div className={`${classes.BestResults} ${this.state.isShow ? classes.Active : ''}`}>
-                    <ModalBox title={this.props.title}>
-                        <ol>
-                            {/* {this.getData().map((el, key) => ( */}
-                                <Suspense fallback={<div>Wczytywanie...</div>}>
-                                    <Results
-                                        key='0'
-                                        time='W trakcie implementacji'
-                                    />
-                                </Suspense> 
-                            {/* ))} */}
-                        </ol>
-                    </ModalBox>
-                </div>
-                <Button onClick={this.onClickHandler} src={this.props.src} />
+    return( 
+        <div className={`${classes.ResultsBox} ${open ? classes.Show : ''}`}>
+            <div className={`${classes.BestResults} ${open ? classes.Active : ''}`}>
+                <ModalBox title={props.title}>
+                    <ol>
+                    {open && props.bestTimes.map(element => (
+                        <Results 
+                            key={element.key}
+                            level={element.level}
+                            time={element.time}
+                            name={element.customer.name} />
+                        ))}
+                    </ol>
+                </ModalBox>
             </div>
-        );
-    }
-    
+            <Button onClick={() => {setOpen(!open)}} src={props.src} />
+        </div>
+    );  
 };
 
 export default Mark

@@ -15,7 +15,7 @@
     height: 300px;
     background-color: rgba(var(--color-yellow-dark-2), .8);
     box-shadow: 8px 8px 5px 0px rgba(var(--color-black),0.75);
-    margin-top: 30px;
+    margin: 40px 0;
 }
 
 @media (max-width: 1024px) {

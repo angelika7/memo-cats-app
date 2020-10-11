@@ -11,7 +11,6 @@ import classes from './Memo.css'
 import watch from './../../assets/images/watch.svg'
 
 class Memo extends Component {
-    
     state = {
         selectedCard: null,
         selectedIndex: null,
@@ -197,7 +196,7 @@ class Memo extends Component {
                     <div className={classes.ClockBox}>
                         {this.state.isEasy ? <p className={classes.GameLevelText}>Poziom: Łatwy</p> : <p className={classes.GameLevelText}>Poziom: Trudny</p>}
                         <img className={classes.Clock} src={watch} />
-                        <Clock newGame={this.state.newGame} endGame={this.state.endGame} level={this.state.isEasy}/>
+                        <Clock getDate={this.props.getDate} getMyDate={this.props.getMyDate} newGame={this.state.newGame} endGame={this.state.endGame} level={this.state.isEasy}/>
                     </div>
                     <div className={classes.Box}>
                         <MemoBuilder isEasy={this.state.isEasy}>

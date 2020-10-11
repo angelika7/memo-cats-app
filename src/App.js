@@ -5,32 +5,59 @@ import { connect } from 'react-redux';
 import Layout from './hoc/Layout/Layout';
 import Memo from './components/Memo/Memo';
 import Register from './containers/Register/Register';
+import Logout from './containers/Register/Logout/Logout';
 import withErrorHandler from './hoc/withErrorHandler/withErrorHandler';
-import axios from './axios';
+import * as actions from './store/actions/index';
 
 class App extends Component {
-  state = {
-    guest: false,
-    results: null,
-    myResults: null
-  }
 
-  guestGameHandler() {
-    this.setState({ guest: true })
+  state = {
+    newResult: false
+  }
+  
+  commponentDidMount() {
+    this.props.onTryAutoSignUp();
   }
 
   render () {
+    let routes = (
+      <Switch>
+        <Route path="/register" component={Register} />
+        <Route path="/" exact component={() => <Memo />} />
+        <Redirect to="/" />
+      </Switch>
+    );
+
+    if(this.props.isAuthenticated) {
+      routes = (
+        <Switch>
+          <Route path="/logout" component={Logout} />
+          <Route path="/" exact component={() => <Memo />} />
+          <Redirect to="/" />
+        </Switch>
+      );
+    }
+
     return (
       <div>
-        <Layout results={this.state.results} myResults={this.state.myResults} >
-          <Switch>
-            <Route path="/register" component={Register} />
-            <Route path="/" component={Memo} exact />
-          </Switch>
+        <Layout newRes={this.state.newResult}>
+            {routes}
         </Layout>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.auth.token !== null
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onTryAutoSignUp: () => dispatch( actions.authCheckState() )
+  }
+}
+
+export default withRouter( connect( mapStateToProps, mapDispatchToProps )( App ) );

@@ -7,8 +7,7 @@ const gameLevel = (props) => {
         return (
              <button 
             className={props.isActive ? [classes.Button, classes.Active].join(' ') : classes.Button } 
-            onClick={props.onClick}
-            style={{width: props.width, height: props.height}}>{props.name}</button> 
+            onClick={props.onClick} style={{width: props.width, height: props.height}}>{props.name}{props.text}</button> 
         )
 
 };

@@ -36,9 +36,10 @@ const input = (props) => {
 
     default:
         input = <input
-                className={classes.Input.join(' ')}
+                className={classes.Input}
                 {...props.elementConfig}
                 value={props.value}
+                placeholder={props.placeholder}
                 onChange={props.changed} />;
 
     }

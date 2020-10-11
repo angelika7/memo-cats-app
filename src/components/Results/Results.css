@@ -9,14 +9,29 @@ ol li {
 }
 
 ol li:not(:last-child) {
-    margin-bottom: 5px;
+    margin-bottom: 12px;
 }
 
 ol li::before {
     content: counter(my-number) ". ";
     color: var(--color-red-dark);
     font-weight: 700;
-    font-size: 18px;
+    font-size: 15px;
+}
+
+.Result {
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 540px) {
+    .Result {
+        font-size: 11px;
+    }
+}
+
+.Time {
+    font-weight: 700;
 }
 
 @media (max-width: 540px) {
@@ -25,7 +40,7 @@ ol li::before {
     }
 
     ol li::before {
-        font-size: 15px;
+        font-size: 13px;
     }
 
     ol li:not(:last-child) {

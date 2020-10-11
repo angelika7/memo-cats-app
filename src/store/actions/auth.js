@@ -2,11 +2,17 @@ import axios from 'axios';
 
 import * as actionTypes from './actionTypes';
 
+export const authStart = () => {
+    return {
+        type: actionTypes.AUTH_START
+    };
+};
+
 export const authSuccess = (token, userId) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
         idToken: token,
-        userId: userId
+        userId: userId,
     };
 };
 
@@ -34,7 +40,7 @@ export const checkAuthTimeout = (expirationTime) => {
     };
 };
 
-export const auth = (email, password, isSignup) => {
+export const auth = (email, password, isSignUp) => {
     return dispatch => {
         dispatch(authStart());
         const authData = {
@@ -42,10 +48,11 @@ export const auth = (email, password, isSignup) => {
             password: password,
             returnSecureToken: true
         };
-        let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyB5cHT6x62tTe-g27vBDIqWcwQWBSj3uiY';
-        if (!isSignup) {
-            url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyB5cHT6x62tTe-g27vBDIqWcwQWBSj3uiY';
-        }
+        let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDtPAyKvJUEsviFKIujmA1UuZQgwRYDS-U';
+        
+        if (isSignUp) {
+            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDtPAyKvJUEsviFKIujmA1UuZQgwRYDS-U';
+        } 
         axios.post(url, authData)
             .then(response => {
                 console.log(response);
@@ -54,11 +61,12 @@ export const auth = (email, password, isSignup) => {
                 localStorage.setItem('expirationDate', expirationDate);
                 localStorage.setItem('userId', response.data.localId);
                 dispatch(authSuccess(response.data.idToken, response.data.localId));
-                dispatch(checkAuthTimeout(response.data.expiresIn));
+                dispatch(checkAuthTimeout(response.data.expiresIn)); 
             })
             .catch(err => {
                 dispatch(authFail(err.response.data.error));
             });
+        
     };
 };
 

@@ -8,6 +8,10 @@
     z-index: 99;
 }
 
+.Hide {
+    display: none;
+}
+
 .Content {
     background-image: url(./../../assets/images/cats.svg);
     background-position: center;
