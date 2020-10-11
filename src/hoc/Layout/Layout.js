@@ -90,7 +90,7 @@ const Layout = (props) => {
                 
                 <main className={classes.Container}>
                     <div className={classes.MainBox}>
-                        <img className={classes.Img} src={'./images/cat4.svg'}/>
+                        <img className={classes.Img} src={'cat4.svg'}/>
                             {props.children}
                         <img className={[classes.Img, classes.Hide].join(' ')} src={'./images/cat5.svg'}/>
                     </div>
