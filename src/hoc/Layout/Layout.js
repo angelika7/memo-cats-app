@@ -7,7 +7,11 @@ import Mark from './../../components/Mark/Mark';
 import Auth from './../../components/Auth/Auth';
 import axios from './../../axios';
 
-import medal1 from 'images/medal1.svg'
+import medal1 from './../../assets/images/medal1.svg';
+import medal2 from './../../assets/images/medal2.svg';
+import cat1 from './../../assets/images/cat4.svg';
+import cat2 from './../../assets/images/cat5.svg';
+
 
 import classes from './Layout.css';
 
@@ -92,13 +96,13 @@ const Layout = (props) => {
                 
                 <main className={classes.Container}>
                     <div className={classes.MainBox}>
-                        <img className={classes.Img} src={'cat4.svg'}/>
+                        <img className={classes.Img} src={cat1}/>
                             {props.children}
-                        <img className={[classes.Img, classes.Hide].join(' ')} src={'./images/cat5.svg'}/>
+                        <img className={[classes.Img, classes.Hide].join(' ')} src={cat2}/>
                     </div>
                     <div className={classes.Results}>
                         <Mark src={medal1} title="Najlepsze wyniki" bestTimes={results} />
-                        {isAuthenticated ? <Mark src={'./images/medal2.svg'} bestTimes={myResults} title="Twoje najlepsze wyniki"/> : null}
+                        {isAuthenticated ? <Mark src={medal2} bestTimes={myResults} title="Twoje najlepsze wyniki"/> : null}
                     </div> 
                 </main>
                 <footer className={classes.Footer}>2020. Aplikację wykonała Angelika Chochorowska &copy; wszystkie prawa zastrzeżone</footer>
