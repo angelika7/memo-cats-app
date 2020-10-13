@@ -11,11 +11,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 600px;
-    height: 300px;
+    width: 750px;
+    height: 500px;
     background-color: rgba(var(--color-yellow-dark-2), .8);
     box-shadow: 8px 8px 5px 0px rgba(var(--color-black),0.75);
-    margin: 40px 0;
+    margin: 70px 0;
+}
+
+@media (min-width: 2200px) {
+    .Form {
+        width: 1600px;
+        height: 800px;
+        margin: 150px 0;
+    }
 }
 
 @media (max-width: 1024px) {

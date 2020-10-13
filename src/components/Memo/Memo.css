@@ -20,9 +20,9 @@
 .GameLevel {
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 500px;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 62.5px;
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(
@@ -38,33 +38,34 @@
 }
 
 .GameLevelText {
-    font-size: 22px;
+    font-size: 27px;
     line-height: 20px;
     letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: 700;
+    text-align: center;
 }
 
 .Buttons {
-    width: 600px;
-    padding: 10px 40px;
+    width: 750px;
+    padding: 15px 50px;
     display: flex;
     flex-direction: row;
-    margin-top: 35px;
+    margin-top: 43px;
     justify-content: space-around;
     align-items: center;
 }
 
 .StartInfo {
-    margin-bottom: 30px;
+    margin-bottom: 43px;
     background-color: rgba(var(--color-lemon), .2);
-    padding: 20px;
+    padding: 30px;
 }
 
 .StartInfo p {
     text-transform: none;
     letter-spacing: 3px;
-    font-size: 14px;
+    font-size: 17.5px;
 }
 
 .ClockBox {
@@ -78,9 +79,52 @@
 }
 
 .Clock {
-    width: 50px;
-    height: 50px;
+    width: 62px;
+    height: 62px;
     margin: 0 5px;
+}
+
+@media (min-width: 2200px) {
+    .GameLevel {
+        height: 900px;
+    }
+
+    .Content {
+        margin-top: 100px; 
+        margin-bottom: 70px;
+    }
+
+    .Buttons {
+        width: 1600px;
+        margin-top: 100px;
+    }
+
+    .StartInfo {
+        padding: 45px 70px;
+        margin-bottom: 100px;
+    }
+
+    .StartInfo p {
+        font-size: 35px;
+    }
+
+    .GameLevelText {
+        font-size: 40px;
+    }
+
+    .Box {
+        margin: 50px 0;
+    }
+
+    .ClockBox {
+        padding: 50px 0;
+    }
+
+    .Clock {
+        width: 80px;
+        height: 80px;
+        margin: 0 15px;
+    }
 }
 
 @media (max-width: 768px) {

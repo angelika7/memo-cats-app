@@ -2,7 +2,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 125px);
+    grid-template-rows: repeat(3, 156px);
     margin: 30px 0;
     gap: 15px;
 }
@@ -11,9 +11,19 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 125px);
+    grid-template-rows: repeat(4, 140px);
     margin: 30px 0;
     gap: 15px;
+}
+
+@media (min-width: 2200px) {
+    .BoardEasy {
+        grid-template-rows: repeat(3, 300px);
+    }
+
+    .BoardHard {
+        grid-template-rows: repeat(4, 270px);
+    }
 }
 
 @media (max-width: 540px) {

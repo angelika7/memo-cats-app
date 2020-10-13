@@ -15,8 +15,8 @@ const auth = (props) => {
                     bgColor= "rgba(var(--color-yellow-light-3), .85)"
                 >
                     <div className={classes.AuthBox}>
-                        <Link to="/register"><GameLevel width= '320px' height= '60px' onClick={props.clicked} name='Logowanie/Rejestracja' /></Link>
-                        <Link to="/"><GameLevel width= '320px' height= '60px' onClick={props.clicked} name='Graj jako gość' /></Link>
+                        <Link to="/register"><GameLevel width= '400px' height= '75px' onClick={props.clicked} name='Logowanie/Rejestracja' /></Link>
+                        <Link to="/"><GameLevel width= '400px' height= '75px' onClick={props.clicked} name='Graj jako gość' /></Link>
                     </div>
                 </ModalBox>
             </div>

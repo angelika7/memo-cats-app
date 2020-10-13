@@ -42,7 +42,7 @@
     mask-size: cover;
     background-color: rgb(var(--color-gray));
     height: 40px;
-    width: 40px;
+    width: 40px; 
     display: inline-block;
     position: absolute;
     top: 50%;
@@ -54,4 +54,11 @@
     transform: rotateY(180deg);
     border: 3px solid rgb(var(--color-white));
     border-radius: 3px;
+}
+
+@media (min-width: 2200px) {
+    .CardStyleFront:before, .CardStyleFront:after {
+        height: 80px;
+        width: 80px; 
+    }
 }

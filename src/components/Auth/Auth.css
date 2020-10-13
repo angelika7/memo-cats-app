@@ -47,6 +47,13 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 165px;
-    margin-top: 45px;
+    height: 206.25px;
+    margin-top: 56.25px;
+}
+
+@media (min-width: 2200px) {
+    .AuthBox {
+        height: 350px;
+        margin-top: 60px;
+    }
 }

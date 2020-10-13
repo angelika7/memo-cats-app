@@ -1,11 +1,17 @@
 .Primary {
     font-family: 'Shadows Into Light', cursive;
-    font-size: 120px;
+    font-size: 150px;
+}
+
+@media (min-width: 2200px) {
+    .Primary {
+        font-size: 240px;
+    }
 }
 
 @media (max-width: 1024px) {
     .Primary {
-        font-size: 80px
+        font-size: 100px
     }
 }
 

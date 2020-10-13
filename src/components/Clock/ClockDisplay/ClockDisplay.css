@@ -1,7 +1,7 @@
 .Clock {
-    font-size: 25px;
+    font-size: 31.25px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 1.25px;
 }
 
 .Background {
@@ -21,9 +21,9 @@
 
 .WinBox {
     background-color: rgba(var(--color-yellow-light-3), .85);
-    width: 700px;
-    height: 500px;
-    border-radius: 50px;
+    width: 875px;
+    height: 625px;
+    border-radius: 62.5px;
     box-shadow: 8px 8px 5px 0px rgba(var(--color-black),0.75);
     display: flex;
     flex-direction: column;
@@ -33,17 +33,17 @@
 
 .Text {
     font-family: 'Shadows Into Light', cursive;
-    font-size: 65px;
+    font-size: 81.25px;
     letter-spacing: 1.5px;
 }
 
 .Info {
-    margin-top: 30px;
-    font-size: 20px;
+    margin-bottom: 30px;
+    font-size: 25px;
 }
 
 .TimeResult {
-    font-size: 40px;
+    font-size: 50px;
     letter-spacing: 1px;
     color: var(--color-yellow-dark-3);
 }
@@ -62,6 +62,31 @@
 
 .Hide {
     display: none;
+}
+
+@media (min-width: 2200px) {
+    .Clock {
+        font-size: 50px;
+    }
+
+    .WinBox {
+        width: 1600px;
+        height: 1000px;
+    }
+
+    .Text {
+        font-size: 140px;
+        margin-bottom: 50px;
+    }
+
+    .Info {
+        margin-bottom: 50px;
+        font-size: 45px;
+    }
+
+    .TimeResult {
+        font-size: 60px;
+    }
 }
 
 @media (max-width: 900px) {

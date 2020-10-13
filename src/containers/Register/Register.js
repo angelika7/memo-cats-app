@@ -150,7 +150,7 @@ class Register extends Component {
                     {form}
                     <Login name={name}/>
                 </form>
-                <Btn name={text} onClick={this.logRegisterHandler} />
+                <Btn name={text} width= '700px' height= '75px' onClick={this.logRegisterHandler} />
             </div>
         )
     }

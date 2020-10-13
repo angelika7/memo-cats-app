@@ -1,8 +1,8 @@
 .Navigation {
     position: fixed;
     z-index: 98;
-    width: 550px;
-    height: 85px;
+    width: 687px;
+    height: 106px;
     top: 0;
     right: 0;
     margin-top: 30px;
@@ -10,6 +10,13 @@
 
 .Hide {
     display: none;
+}
+
+@media (min-width: 2200px) {
+    .Navigation {
+        width: 1200px;
+        height: 150px;
+    }
 }
 
 @media (max-width: 768px) {

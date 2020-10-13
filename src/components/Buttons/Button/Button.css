@@ -1,7 +1,7 @@
 .Button {
-    width: 80px;
-    height: 80px;
-    padding: 8px;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
     border: none;
     background-color: rgba(var(--color-yellow-light-3), .3);
     transition: transform .3s ease-in-out;
@@ -31,11 +31,17 @@
     100% {opacity: 1;}
 }
 
+@media (min-width: 2200px) {
+    .Button {
+        width: 180px;
+        height: 180px;
+    }
+}
 
 @media (max-width: 540px) {
     .Button {
-        width: 60px;
-        height: 60px;
+        width: 75px;
+        height: 75px;
     }
 }
 
