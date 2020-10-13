@@ -7,6 +7,8 @@ import Mark from './../../components/Mark/Mark';
 import Auth from './../../components/Auth/Auth';
 import axios from './../../axios';
 
+import medal1 from 'images/medal1.svg'
+
 import classes from './Layout.css';
 
 const Layout = (props) => {
@@ -95,7 +97,7 @@ const Layout = (props) => {
                         <img className={[classes.Img, classes.Hide].join(' ')} src={'./images/cat5.svg'}/>
                     </div>
                     <div className={classes.Results}>
-                        <Mark src={'./images/medal1.svg'} title="Najlepsze wyniki" bestTimes={results} />
+                        <Mark src={medal1} title="Najlepsze wyniki" bestTimes={results} />
                         {isAuthenticated ? <Mark src={'./images/medal2.svg'} bestTimes={myResults} title="Twoje najlepsze wyniki"/> : null}
                     </div> 
                 </main>
