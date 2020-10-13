@@ -131,6 +131,10 @@
     .GameLevel {
         margin-top: 20px;
     }
+
+    .Content {
+        padding-bottom: 90px;
+    }
 }
 
 @media (max-width: 600px) {

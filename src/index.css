@@ -28,7 +28,7 @@
   box-sizing: border-box;
 }
 
-html, body, #root, #root>div {
+html, body, #root {
   min-height: 100vh;
 }
 

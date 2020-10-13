@@ -74,6 +74,7 @@
 }
 
 @media (max-width: 768px) {
+
     .MainBox {
         grid-template-columns: 5% 90% 5%;
     }

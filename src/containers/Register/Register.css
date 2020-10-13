@@ -32,6 +32,12 @@
     }
 }
 
+@media (max-width: 767px) {
+    .FormBox {
+        padding-bottom: 150px;
+    }
+}
+
 @media (max-width: 620px) {
     .Form {
         width: 380px;
