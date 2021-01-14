@@ -55,7 +55,7 @@ class Memo extends Component {
 
             setTimeout(() => {
                 this.matchCards(clickedCard, clickedIndex)
-            }, 500) 
+            }, 360) 
 
         } else {
             cards[clickedIndex].flipped = true;
@@ -167,7 +167,7 @@ class Memo extends Component {
         if(!startGame || showLevels) {
             levels = (
                 <div className={classes.Box}>
-                    <div className={classes.GameLevel}>
+                    <div className={[classes.GoIn,classes.GameLevel].join(' ')}>
                         <div className={classes.StartInfo}>
                             <p className={classes.GameLevelText}>Wybierz poziom i rozpocznij grę</p>
                         </div>
@@ -193,10 +193,10 @@ class Memo extends Component {
         if(startGame) {
             readyGame = (
                 <React.Fragment>
-                    <div className={classes.ClockBox}>
+                    <div className={[classes.ClockBox, classes.ShowClock].join(' ')}>
                         {this.state.isEasy ? <p className={classes.GameLevelText}>Poziom: Łatwy</p> : <p className={classes.GameLevelText}>Poziom: Trudny</p>}
-                        <img className={classes.Clock} src={watch} />
-                        <Clock getDate={this.props.getDate} getMyDate={this.props.getMyDate} newGame={this.state.newGame} endGame={this.state.endGame} level={this.state.isEasy}/>
+                        <img className={classes.Clock} src={watch}/>
+                        <Clock newGame={this.state.newGame} endGame={this.state.endGame} level={this.state.isEasy}/>
                     </div>
                     <div className={classes.Box}>
                         <MemoBuilder isEasy={this.state.isEasy}>

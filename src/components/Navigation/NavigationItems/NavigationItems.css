@@ -9,3 +9,9 @@
     padding: 15px;
     background-color: rgba(var(--color-white), 0.65) ;
 }
+
+@media (max-width: 375px) {
+    .List {
+        justify-content: space-around;
+    }
+}

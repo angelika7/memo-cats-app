@@ -11,9 +11,8 @@
     justify-content: center;
     align-items: center;
     z-index: 11;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
     background-color:rgba(var(--color-white), .5)
@@ -49,7 +48,7 @@
 }
 
 .PopupEffect {
-    animation: bgEffect 1s linear alternate 1;  
+    animation: bgEffect .4s linear alternate 1;  
 } 
 
 @keyframes bgEffect {
@@ -61,8 +60,18 @@
 } 
 
 .Hide {
-    display: none;
+    animation: bgEffectOut .3s linear forwards;
 }
+
+@keyframes bgEffectOut {
+    0% {
+        transform: translateX(0%);
+    }
+    
+    100% {
+        transform: translateX(-120%);
+    }
+} 
 
 @media (min-width: 2200px) {
     .Clock {

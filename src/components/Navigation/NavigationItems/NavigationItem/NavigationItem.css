@@ -64,7 +64,15 @@
 
 @media (max-width: 375px) {
     .Item {
-        width: 120px;
         font-size: 8px;
+        width: 130px;
+    }
+
+    .Item:last-child {
+        margin-right: 0;
+    }
+    
+    .Item:not(:first-child) {
+        margin-left: 0;
     }
 }

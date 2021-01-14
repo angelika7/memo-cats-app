@@ -28,6 +28,7 @@
 @media (max-width: 540px) {
     .Navigation {
         width: 400px;
+        margin-top: 15px;
     }
 }
 

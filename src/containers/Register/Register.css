@@ -4,6 +4,7 @@
     align-items: center;
     flex-direction: column;
     margin-bottom: 50px;
+    position: relative;
 }
 
 .Form {
@@ -16,6 +17,47 @@
     background-color: rgba(var(--color-yellow-dark-2), .8);
     box-shadow: 8px 8px 5px 0px rgba(var(--color-black),0.75);
     margin: 70px 0;
+}
+
+.Error {
+    width: 90%;
+    border: 5px solid var(--color-red-dark);
+    padding: 20px;
+    background-color: rgba(var(--color-red-dark-2), .2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -3%;
+    left: 5%;
+}
+
+.ErrorMessage {
+    text-align: center;
+    color: var(--color-red-dark);
+    letter-spacing: .5px;
+}
+
+.ErrorMessage span {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.ShowError {
+    animation: error .4s ease-in-out forwards;
+} 
+
+@keyframes error {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 @media (min-width: 2200px) {

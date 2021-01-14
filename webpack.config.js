@@ -7,7 +7,7 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: './src/index.js',
   output: {
-      path: path.resolve(__dirname, 'public'),
+      path: path.resolve(__dirname, 'docs'),
       filename: 'bundle.js',
       chunkFilename: '[id].js',
       publicPath: ''
@@ -62,7 +62,7 @@ module.exports = {
   },
   plugins: [
       new HtmlWebpackPlugin({
-          template: __dirname + '/public/index.html',
+          template: __dirname + '/docs/index.html',
           filename: 'index.html',
           inject: 'body'
       })

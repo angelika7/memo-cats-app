@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import withErrorHandler from './../../hoc/withErrorHandler/withErrorHandler';
 
 //import * as actions from './../../store/actions/index';
 import axios from './../../axios'; 
 
 import ClockDisplay from './ClockDisplay/ClockDisplay';
-
 
 class Clock extends Component {
     state = {
@@ -30,8 +28,7 @@ class Clock extends Component {
 
         if(prevProps.endGame !== this.props.endGame) {
             this.setState({endMemo: true});
-            this.stopTimerHandler()
-            console.log('Timer stop!')   
+            this.stopTimerHandler() 
         }
     }
 
@@ -51,12 +48,12 @@ class Clock extends Component {
         let miliseconds = ("0" + (Math.floor(clockTime / 10) % 100)).slice(-2);
         let seconds = ("0" + (Math.floor(clockTime / 1000) % 60)).slice(-2);
         let minutes = ("0" + (Math.floor(clockTime / 60000) % 60)).slice(-2);
-        let myTime = `${minutes}:${seconds}:${miliseconds}ms`
+        let myTime = `${minutes}:${seconds}:${miliseconds}`
 
         this.setState((state, props) => {
             return { running: false,
             stopTime: myTime }
-        },() => console.log(this.state.stopTime, 'Stop Time')); 
+        }); 
         
         clearInterval(this.time); 
     }
@@ -97,7 +94,7 @@ class Clock extends Component {
         }
 
         axios.post('/results.json', result)
-            .then(response => console.log(response))
+            .then(response => response)
             .catch(err => console.log(err));
     }
 
@@ -106,7 +103,7 @@ class Clock extends Component {
         let miliseconds = ("0" + (Math.floor(clockTime / 10) % 100)).slice(-2);
         let seconds = ("0" + (Math.floor(clockTime / 1000) % 60)).slice(-2);
         let minutes = ("0" + (Math.floor(clockTime / 60000) % 60)).slice(-2);
-        let time = `${minutes}:${seconds}:${miliseconds}ms`
+        let time = `${minutes}:${seconds}:${miliseconds}`
         
         return ( 
             <React.Fragment>

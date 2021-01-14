@@ -6,24 +6,35 @@ import Layout from './hoc/Layout/Layout';
 import Memo from './components/Memo/Memo';
 import Register from './containers/Register/Register';
 import Logout from './containers/Register/Logout/Logout';
-import withErrorHandler from './hoc/withErrorHandler/withErrorHandler';
 import * as actions from './store/actions/index';
 
-class App extends Component {
+import NewResContext from './context/newRes-context';
 
+class App extends Component {
   state = {
-    newResult: false
+    isNew: false,
   }
   
   commponentDidMount() {
     this.props.onTryAutoSignUp();
   }
 
+  isNewHandler = () => {
+    this.setState({isNew: true});
+
+    setTimeout(() => {
+      this.setState({isNew: false});
+    }, 40);
+
+  }
+
   render () {
     let routes = (
       <Switch>
         <Route path="/register" component={Register} />
-        <Route path="/" exact component={() => <Memo />} />
+        <NewResContext.Provider value={{isNew: this.isNewHandler}}>
+          <Route path="/" exact component={() => <Memo />} />
+        </NewResContext.Provider>
         <Redirect to="/" />
       </Switch>
     );
@@ -32,18 +43,20 @@ class App extends Component {
       routes = (
         <Switch>
           <Route path="/logout" component={Logout} />
-          <Route path="/" exact component={() => <Memo />} />
+          <NewResContext.Provider value={{isNew: this.isNewHandler}}>
+            <Route path="/" exact component={() => <Memo />} />
+          </NewResContext.Provider>
           <Redirect to="/" />
         </Switch>
       );
     }
 
     return (
-      <div>
-        <Layout newRes={this.state.newResult}>
+      <React.Fragment>
+        <Layout newRes={this.state.isNew}>
             {routes}
         </Layout>
-      </div>
+      </React.Fragment>
     );
   }
 }

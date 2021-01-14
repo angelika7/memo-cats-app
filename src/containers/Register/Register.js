@@ -127,7 +127,9 @@ class Register extends Component {
 
         if (this.props.error) {
             errorMessage = (
-                <p>{this.props.error.message}</p>
+                <div className={[classes.Error, classes.ShowError].join(' ')}>
+                    <p className={classes.ErrorMessage}><span>Wystąpił błąd:</span> {this.props.error.message}<span>. Spróbuj jeszcze raz.</span></p>
+                </div>
             );
         }
 

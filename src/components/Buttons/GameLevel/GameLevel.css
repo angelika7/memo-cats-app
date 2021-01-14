@@ -26,9 +26,16 @@
     }
 }
 
+@media (max-width: 426px) {
+    .Button {
+        width: 320px !important;
+        font-size: 18px;
+    }
+}
+
 @media (max-width: 375px) {
     .Button {
-        width: 262.5px !important;
+        width: 258px !important;
         font-size: 12.5px;
     }
 }

@@ -62,3 +62,10 @@
         width: 80px; 
     }
 }
+
+@media (max-width: 425px) {
+    .CardStyleFront:before, .CardStyleFront:after {
+        height: 30px;
+        width: 30px; 
+    }
+}

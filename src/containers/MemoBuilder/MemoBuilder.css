@@ -28,16 +28,44 @@
 
 @media (max-width: 540px) {
     .BoardEasy {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 125px);
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 125px);
         gap: 10px;
     }
 
     .BoardHard {
         height: max-content;
         gap: 5px;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(6, 125px);
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 100px);
     }
 
+}
+
+@media (max-width: 425px) {
+    .BoardEasy {
+        grid-template-rows: repeat(3, 110px);
+        gap: 10px;
+    }
+
+    .BoardHard {
+        grid-template-rows: repeat(4, 90px);
+    }
+
+}
+
+.ShowMemo {
+    animation: goInMemo .2s ease-in-out forwards;
+} 
+
+@keyframes goInMemo {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

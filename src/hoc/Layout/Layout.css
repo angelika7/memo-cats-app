@@ -104,6 +104,10 @@
     .Results {
         grid-template-rows: 100px 25px;
     }
+
+    .Header {
+        margin-top: 80px;
+    }
 }
 
 @media (max-width: 425px) {
